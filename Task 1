@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Studentgrade {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input number of students
+        System.out.print("Enter the number of students: ");
+        int numStudents = scanner.nextInt();
+
+        int[] grades = new int[numStudents];
+
+        // Input grades
+        for (int i = 0; i < numStudents; i++)
+        {
+            System.out.print("Enter grade for Student " + (i + 1) + ": ");
+            grades[i] = scanner.nextInt();
+        }
+
+        // Calculate total, average, highest, and lowest
+        int total = 0;
+        int highest = grades[0];
+        int lowest = grades[0];
+
+        for (int grade : grades) { //for(;;)  //for(:)
+            total += grade;
+            if (grade > highest) {
+                highest = grade;
+            }
+            if (grade < lowest) {
+                lowest = grade;
+            }
+        }
+
+        double average = (double) total / numStudents;
+
+        // Display summary
+        System.out.println("\n--- Student Grade Summary ---");
+        for (int i = 0; i < numStudents; i++) {
+            System.out.println("Student " + (i + 1) + ": " + grades[i]);
+        }
+        System.out.println("Average Score: " + average);
+        System.out.println("Highest Score: " + highest);
+        System.out.println("Lowest Score: " + lowest);
+
+        scanner.close();
+    }
+}
